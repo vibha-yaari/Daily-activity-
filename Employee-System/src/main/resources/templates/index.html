@@ -1,0 +1,68 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"  >
+<script type="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+  
+  <div>
+  <h2> Employee Management</h2>
+  <br><br>
+  <tr>
+  <div align="left">
+  
+  <h3><a th:href="@{'/new'}">Add Employee</a></h3>
+  </div>
+  </tr>
+  
+  <tr>
+  <div class="col-sm-5" align="center">
+  <div class="panel-body" align="center">
+  <table class="table">
+  <thead class="thead-dark">
+  <tr>
+   <th> ID</th>
+   <th> Name</th>
+   <th> Skills</th>
+   <th>Designation </th>
+   
+  
+  </tr>
+  
+  </thead>
+  
+  
+  <tbody>
+  <tr th:each="employee : ${listemployee}">
+  <td th:text="${employee.id}">Id</td>
+   <td th:text="${employee.name}">name</td>
+    <td th:text="${employee.skills}">skills</td>
+     <td th:text="${employee.designation}">designation</td>
+     <td><a th:href="@{'/edit'+ $(employee.id)}">Edit</a></td>
+     <td><a th:href="@{'/delete'+ $(employee.id)}">Delete</a></td>
+     
+  </tr>
+  
+  </tbody>
+  
+  
+  
+  </table>
+  </div>
+  </div>
+  
+  
+   
+  
+  </body>
+</html>
